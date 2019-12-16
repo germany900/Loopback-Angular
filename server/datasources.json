@@ -1,0 +1,32 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongodbDs": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "url": "",
+    "database": "noteapi",
+    "password": "",
+    "name": "mongodbDs",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "Email": {
+    "name": "Email",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "ykekydev@gmail.com",
+          "pass": "Ykeky2019"
+        }
+      }
+    ]
+  }
+}

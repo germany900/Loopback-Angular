@@ -1,0 +1,43 @@
+{
+    "name": "notes",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "content": {
+            "type": "string"
+        },
+        "updated_at": {
+            "type": "date",
+            "defaultFn": "now"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "superuser": {
+            "type": "belongsTo",
+            "model": "superuser",
+            "foreignKey": ""
+        }
+    },
+    "acls": [{
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$unauthenticated",
+            "permission": "DENY"
+        },
+        {
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW"
+        }
+    ],
+    "methods": {}
+}

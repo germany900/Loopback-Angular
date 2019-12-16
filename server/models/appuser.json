@@ -1,0 +1,53 @@
+{
+    "name": "appuser",
+    "base": "User",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "firstname": {
+            "type": "string",
+            "required": true
+        },
+        "lastname": {
+            "type": "string",
+            "required": true
+        },
+        "username": {
+            "type": "string",
+            "required": true
+        },
+        "email": {
+            "type": "string",
+            "required": true
+        }
+    },
+    "validations": [],
+    "relations": {
+        "superuser": {
+            "type": "hasOne",
+            "model": "superuser",
+            "foreignKey": "rootUserId"
+        },
+        "notes": {
+            "type": "hasMany",
+            "model": "notes",
+            "foreignKey": ""
+        }
+    },
+    "acls": [{
+            "principalType": "ROLE",
+            "principalId": "$unauthenticated",
+            "permission": "ALLOW",
+            "property": "sendEmail"
+        },
+        {
+            "principalType": "ROLE",
+            "principalId": "$unauthenticated",
+            "permission": "ALLOW",
+            "property": "updateForgetPassword"
+        }
+    ],
+    "methods": {}
+}
